@@ -4,8 +4,8 @@ export const posts = [
     createdBy: '0',
     text: 'Demo caption',
     media: {
-      type: 'video',
-      source: 'https://.........',
+      type: 'image',
+      source: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     repost: 'postId',
     comments: 30,
@@ -20,7 +20,7 @@ export const posts = [
     text: 'Check out this amazing photo!',
     media: {
       type: 'image',
-      source: 'https://example.com/photo1.jpg',
+      source: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     repost: null,
     comments: 12,
@@ -74,7 +74,7 @@ export const users = {
     id: '1',
     name: 'John Doe',
     age: 25,
-    profile: 'https://example.com/profile1.jpg',
+    profile: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     username: 'john_doe',
     email: 'john.doe@example.com',
   },
