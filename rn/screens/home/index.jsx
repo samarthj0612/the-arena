@@ -1,6 +1,5 @@
 import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import AddNewPost from '../addNewPost';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Post from '../../components/Post';

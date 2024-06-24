@@ -13,10 +13,11 @@ const bottomSheetHeight = 130;
 
 const Post = ({ name, username, text, media }) => {
   const {openBottomSheet} = useBottomSheet();
+  const navigation = useNavigation();
 
   const sheetContent = (
     <View style={styles.sheetContentWrapper}>
-      <TouchableOpacity style={styles.menuOption}>
+      <TouchableOpacity style={styles.menuOption} onPress={() => navigation.navigate('Repost')}>
         <EvilIcons name="retweet" size={24} color={grey} />
         <Text style={styles.menuText}>Repost</Text>
       </TouchableOpacity>
