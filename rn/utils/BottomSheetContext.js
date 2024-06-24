@@ -6,7 +6,7 @@ const BottomSheetContext = createContext();
 export const BottomSheetProvider = ({children}) => {
   const refRBSheet = useRef();
   const [content, setContent] = useState(null);
-  const [sheetHeight, setSheetHeight] = useState(300); // Default height
+  const [sheetHeight, setSheetHeight] = useState(150); // Default height
 
   const openBottomSheet = (content, height = 300) => {
     setContent(content);

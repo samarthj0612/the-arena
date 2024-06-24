@@ -1,9 +1,9 @@
 import React from 'react';
-import Main from './rn/main';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { BottomSheetProvider } from './rn/components/BottomSheetContext';
-import { StatusBar } from 'react-native';
+import Main from './rn/main';
+import { BottomSheetProvider } from './rn/utils/BottomSheetContext';
 
 function App(): React.JSX.Element {
   return (

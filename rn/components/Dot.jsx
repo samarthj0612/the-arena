@@ -3,7 +3,7 @@ import React from 'react'
 
 const Dot = ({ color }) => {
   return (
-    <View style={{ backgroundColor: color ? color : "#EB5409", ...styles.container}}>
+    <View style={{ backgroundColor: color ? color : "#EB5409", ...styles.container }}>
     </View>
   )
 }

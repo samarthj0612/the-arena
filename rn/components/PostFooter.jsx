@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
@@ -10,24 +9,28 @@ const PostFooter = () => {
   return (
     <View style={styles.container}>
       <View style={styles.section}>
-        <FontAwesome name='comments-o' size={22} color={'#878787'}/>
+        <FontAwesome name='comments-o' size={22} color={'#878787'} />
         <Text style={styles.text}>20</Text>
       </View>
+
       <View style={styles.section}>
-        <AntDesign name='retweet' size={22} color={'#878787'}/>
+        <AntDesign name='retweet' size={22} color={'#878787'} />
         <Text style={styles.text}>20</Text>
       </View>
+
       <View style={styles.section}>
-        <AntDesign name='hearto' size={22} color={'#878787'}/>
+        <AntDesign name='hearto' size={22} color={'#878787'} />
         <Text style={styles.text}>20</Text>
       </View>
+
       <View style={styles.section}>
-        <Feather name='bookmark' size={22} color={'#878787'}/>
+        <Feather name='bookmark' size={22} color={'#878787'} />
         <Text style={styles.text}>20</Text>
       </View>
+
       <View style={styles.dollar}>
-        <Foundation name='dollar' size={22} color={'#878787'}/>
-       </View>
+        <Foundation name='dollar' size={22} color={'#878787'} />
+      </View>
     </View>
   )
 }
@@ -39,10 +42,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+
   section: {
     flexDirection: 'row',
     gap: 4
   },
+
   dollar: {
     height: 22,
     width: 22,

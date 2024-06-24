@@ -1,12 +1,13 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './screens/home';
-import Search from './screens/search';
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-import Dot from './components/Dot';
 import { View } from 'react-native';
+
+import Home from './screens/home';
+import Search from './screens/search';
+import Dot from './components/Dot';
 
 const Tab = createBottomTabNavigator();
 

@@ -15,8 +15,7 @@ const CustomTextInput = ({ placeholder, placeholderStyle, style, ...props }) => 
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChangeText={text => setValue(text)}
-        multiline={true} 
-        // textAlignVertical="top"
+        multiline={true}
         value={value}
         {...props}
       />
@@ -37,8 +36,8 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   textInput: {
-    color:"white",
-   
+    color: "white",
+
     paddingHorizontal: 10,
     width: '100%',
   },

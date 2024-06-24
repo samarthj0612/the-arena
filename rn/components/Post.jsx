@@ -1,14 +1,17 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-import PostFooter from './PostFooter'
-import { useNavigation } from '@react-navigation/native'
-import { useBottomSheet } from './BottomSheetContext'
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons.js';
-import Dot from './Dot'
-import { posts } from '../assets/data'
-import { users } from '../assets/data'
+
+import { useBottomSheet } from '../utils/BottomSheetContext';
+import PostFooter from './PostFooter';
+import Dot from './Dot';
+
+import { posts } from '../assets/data';
+import { users } from '../assets/data';
 
 const grey = '#808080';
 const bottomSheetHeight = 130;
@@ -29,12 +32,12 @@ const Post = ({ id, isReposted }) => {
   const sheetContent = (
     <View style={styles.sheetContentWrapper}>
       <TouchableOpacity style={styles.menuOption} onPress={() => navigation.navigate('Repost', { postId: id })}>
-        <EvilIcons name="retweet" size={24} color={grey} />
+        <EvilIcons name="retweet" size={28} color={grey} />
         <Text style={styles.menuText}>Repost</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.menuOption}>
         <MaterialIcons name="text" size={24} color={grey} />
-        <Text style={styles.menuText}>Quote</Text>
+        <Text style={styles.menuText}> Quote</Text>
       </TouchableOpacity>
     </View>
   );
@@ -61,7 +64,7 @@ const Post = ({ id, isReposted }) => {
               </TouchableOpacity>
             </View>
 
-            <View style={{gap: 10, marginLeft: !isReposted ? 55 : 0}}>
+            <View style={{ gap: 10, marginLeft: !isReposted ? 55 : 0 }}>
               <Text style={{ ...styles.text }}>{postData.text}</Text>
 
               {postData.media && postData.media.type === 'image' && (
@@ -80,7 +83,6 @@ const Post = ({ id, isReposted }) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flexDirection: 'row',
     padding: 10,
     borderWidth: 0.6,
     borderBottomColor: '#808080'
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
   },
   menuOption: {
     flexDirection: 'row',
-    gap: 5,
+    gap: 8,
     alignItems: 'center',
   },
   menuText: {

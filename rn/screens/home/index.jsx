@@ -1,10 +1,10 @@
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-
+import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
+
 import Post from '../../components/Post';
 import { posts, users } from '../../assets/data';
-import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/Header';
 
 const Home = () => {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#020202',
     position: 'relative'
   },
+
   floatingButton: {
     width: 52,
     height: 52,

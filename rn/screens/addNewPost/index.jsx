@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet, SafeAreaView, TextInput, Image, TouchableOpacity, Switch, KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
 import React, { useState } from 'react'
-import { users } from '../../assets/data'
-import CustomTextInput from '../../components/CustomTextInput'
-import Octicons from 'react-native-vector-icons/Octicons'
+import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, Switch, KeyboardAvoidingView, Platform } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Octicons from 'react-native-vector-icons/Octicons'
+
+import CustomTextInput from '../../components/CustomTextInput'
+import { users } from '../../assets/data'
 
 const userData = Object.values(users)
 
@@ -81,9 +82,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#020202",
   },
+
   container: {
     flex: 1,
   },
+
   header: {
     borderBottomWidth: 2,
     borderBottomColor: "#3B3B3B",
@@ -91,46 +94,55 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 25,
   },
+
   headerText: {
     color: "white",
     fontWeight: "600",
     fontSize: 18,
     textAlign: "center",
   },
+
   inputContainer: {
     flex: 1,
     flexDirection: "row",
     marginBottom: 20,
     padding: 12
   },
+
   profileImg: {
     height: 60,
     width: 60,
     borderRadius: 50,
   },
+
   textInput: {
     flex: 1,
     paddingHorizontal: 10,
     color: 'white',
   },
+
   placeholderStyle: {
     color: '#808080',
     fontSize: 20,
   },
+
   submit: {
     alignItems: 'center',
     padding: 12
   },
+
   medias: {
     marginBottom: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
   },
+
   mediaIcons: {
     flexDirection: "row",
     gap: 20,
   },
+
   gifIcon: {
     height: 30,
     width: 30,
@@ -138,17 +150,21 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     justifyContent: "center",
   },
+
   switchContainer: {
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
   },
+
   switchText: {
     color: "white",
   },
+
   postButtonContainer: {
     width: '100%',
   },
+
   postButton: {
     backgroundColor: "#EB540A",
     height: 44,
@@ -156,6 +172,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
   postNowText: {
     fontSize: 16,
     fontWeight: "600",

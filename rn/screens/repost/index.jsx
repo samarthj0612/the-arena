@@ -1,23 +1,23 @@
-import { View, Text, StyleSheet, SafeAreaView, TextInput, Image, TouchableOpacity, Switch, KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { users } from '../../assets/data'
-import CustomTextInput from '../../components/CustomTextInput'
-import Octicons from 'react-native-vector-icons/Octicons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Octicons from 'react-native-vector-icons/Octicons'
+
+import { useBottomSheet } from '../../utils/BottomSheetContext'
+import CustomTextInput from '../../components/CustomTextInput'
 import Post from '../../components/Post'
+import { users } from '../../assets/data'
 
 const userData = Object.values(users)
 
 const Repost = ({ route }) => {
   const [postId, setPostId] = useState();
+  const { closeBottomSheet } = useBottomSheet();
 
   useEffect(() => {
     setPostId(route.params.postId);
+    closeBottomSheet();
   }, [route.params.postId]);
-
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
     <SafeAreaView style={styles.body}>
@@ -57,28 +57,12 @@ const Repost = ({ route }) => {
                   <MaterialIcons name="gif" color="white" size={30} />
                 </View>
               </TouchableOpacity>
-
-              <TouchableOpacity>
-                <View>
-                  <MaterialCommunityIcons name="format-list-checkbox" color="white" size={30} />
-                </View>
-              </TouchableOpacity>
             </View>
 
-            <View style={styles.switch}>
-              <Text style={{ color: "white" }}>Make Post Private</Text>
-              <Switch
-                trackColor={{ false: '#767577', true: '#EB540A' }}
-                thumbColor={isEnabled ? '#ffffff' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-            </View>
           </View>
           <TouchableOpacity style={{ width: '100%' }}>
             <View style={styles.postButton}>
-              <Text style={styles.postNowText}>Post Now</Text>
+              <Text style={styles.postNowText}>Repost</Text>
             </View>
           </TouchableOpacity>
         </View>
