@@ -1,23 +1,34 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { users } from '../assets/data'
+import React, { useEffect, useState } from 'react'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import PostFooter from './PostFooter'
 import { useNavigation } from '@react-navigation/native'
 import { useBottomSheet } from './BottomSheetContext'
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons.js';
+import Dot from './Dot'
+import { posts } from '../assets/data'
+import { users } from '../assets/data'
 
 const grey = '#808080';
 const bottomSheetHeight = 130;
 
-const Post = ({ name, username, text, media }) => {
-  const {openBottomSheet} = useBottomSheet();
+const Post = ({ id, isReposted }) => {
+  const { openBottomSheet } = useBottomSheet();
   const navigation = useNavigation();
+  const [postData, setPostData] = useState(null);
+
+  useEffect(() => {
+    const data = posts.filter((post) => post.id == id);
+    if (data) {
+      setPostData(data[0]);
+    }
+  }, [postData])
+
 
   const sheetContent = (
     <View style={styles.sheetContentWrapper}>
-      <TouchableOpacity style={styles.menuOption} onPress={() => navigation.navigate('Repost')}>
+      <TouchableOpacity style={styles.menuOption} onPress={() => navigation.navigate('Repost', { postId: id })}>
         <EvilIcons name="retweet" size={24} color={grey} />
         <Text style={styles.menuText}>Repost</Text>
       </TouchableOpacity>
@@ -33,33 +44,43 @@ const Post = ({ name, username, text, media }) => {
   };
 
   return (
-    <View style={ styles.container }>
-      <Image style={styles.profilePic} source={{ uri: users[1].profile }} height={45} width={45} />
+    <>
+      {postData ? (
+        <View style={styles.container}>
 
-      <View style={ styles.content }>
-        <View style={styles.postHeader}>
-          <Text style={styles.text}>{ name }</Text>
-          <Text style={styles.textSecondary}>@{ username }</Text>
-          <Text style={styles.textSecondary}>1 day</Text>
-          <TouchableOpacity style={styles.options} onPress={bottomSheet}>
-            <SimpleLineIcons name='options' size={16} color={'#ffffff'} />
-          </TouchableOpacity>
+          <View style={styles.content}>
+            <View style={styles.postHeader}>
+              <Image style={styles.profilePic} source={{ uri: users[1].profile }} height={45} width={45} />
+              <Text style={styles.text}>{users[postData.createdBy].name}</Text>
+              <Dot color={"#878787"} />
+              <Text style={styles.textSecondary}>@{users[postData.createdBy].username}</Text>
+              <Dot color={"#878787"} />
+              <Text style={styles.textSecondary}>1 day</Text>
+              <TouchableOpacity style={styles.options} onPress={bottomSheet}>
+                <SimpleLineIcons name='options' size={16} color={'#ffffff'} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={{gap: 10, marginLeft: !isReposted ? 55 : 0}}>
+              <Text style={{ ...styles.text }}>{postData.text}</Text>
+
+              {postData.media && postData.media.type === 'image' && (
+                <Image style={styles.postMedia} source={{ uri: postData.media.source }} height={300} width={300} />
+              )}
+
+              <PostFooter />
+            </View>
+          </View>
+
         </View>
-
-        <Text style={styles.text}>{text}</Text>
-
-        {media && media.type == 'image' && <Image style={styles.postMedia} source={{ uri: media.source }} height={320} width={320} />}
-
-        <PostFooter />
-      </View>
-
-    </View>
+      ) : null}
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
     padding: 10,
     borderWidth: 0.6,
     borderBottomColor: '#808080'
@@ -71,7 +92,7 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 1,
-    padding: 10,
+    paddingHorizontal: 15,
     flexDirection: 'column',
     gap: 6,
   },
@@ -80,11 +101,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    flex: 1
+    flex: 1,
+    gap: 10
   },
 
   options: {
-    marginStart: 20
+    flex: 1,
+    alignItems: 'flex-end'
   },
 
   text: {
@@ -96,6 +119,7 @@ const styles = StyleSheet.create({
   },
 
   postMedia: {
+    width: '100%',
     borderRadius: 6
   },
 

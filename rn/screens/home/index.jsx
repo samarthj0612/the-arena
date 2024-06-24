@@ -1,9 +1,9 @@
-import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Post from '../../components/Post';
-import {posts, users} from '../../assets/data';
+import { posts, users } from '../../assets/data';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/Header';
 
@@ -20,6 +20,8 @@ const Home = () => {
         {posts.map((post, i) => {
           return (
             <Post
+              key={i}
+              id={post.id}
               name={users[post.createdBy].name}
               username={users[post.createdBy].username}
               text={post.text}
@@ -37,7 +39,7 @@ export default Home;
 const styles = StyleSheet.create({
   parent: {
     flex: 1,
-    backgroundColor: '#020202', 
+    backgroundColor: '#020202',
     position: 'relative'
   },
   floatingButton: {

@@ -35,7 +35,7 @@ const PostFooter = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
+    paddingVertical: 8,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
