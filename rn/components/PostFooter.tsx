@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -16,14 +16,18 @@ const PostFooter = () => {
   return (
     <View style={styles.container}>
       {icons.map((icon, index) => (
-        <View key={index} style={styles.section}>
-          <icon.component name={icon.name} size={22} color="#878787" />
-          <Text style={styles.text}>20</Text>
-        </View>
+        <TouchableOpacity key={index}>
+          <View style={styles.section}>
+            <icon.component name={icon.name} size={22} color="#878787" />
+            <Text style={styles.text}>20</Text>
+          </View>
+        </TouchableOpacity>
       ))}
-      <View style={styles.dollar}>
-        <Foundation name="dollar" size={22} color="#878787" />
-      </View>
+      <TouchableOpacity>
+        <View style={styles.dollar}>
+          <Foundation name="dollar" size={20} color="#878787" />
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -41,12 +45,12 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   dollar: {
-    height: 22,
-    width: 22,
+    height: 24,
+    width: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 11,
-    borderWidth: 1,
+    borderRadius: 50,
+    borderWidth: 1.6,
     borderColor: '#878787',
   },
   text: {

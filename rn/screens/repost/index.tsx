@@ -10,13 +10,21 @@ import { users } from '../../assets/data';
 
 const userData = Object.values(users);
 
-const Repost = ({ route }) => {
-  const [postId, setPostId] = useState(null);
+interface RepostInterface {
+  route: {
+    params: {
+      postId: string
+    }
+  }
+}
+
+const Repost = ({ route } : RepostInterface) => {
+  const [postId, setPostId] = useState<string>();
   const { closeBottomSheet } = useBottomSheet();
 
   useEffect(() => {
-    const { postId } = route.params;
-    setPostId(postId);
+    const { postId:id } = route.params;
+    setPostId(id);
     closeBottomSheet(); // Ensure bottom sheet is closed when postId changes
   }, [route.params.postId]);
 
@@ -27,7 +35,6 @@ const Repost = ({ route }) => {
   return (
     <SafeAreaView style={styles.body}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
         style={styles.container}
         keyboardVerticalOffset={80}
       >

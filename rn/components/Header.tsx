@@ -1,11 +1,11 @@
-import { View, Image, StyleSheet } from 'react-native';
 import React from 'react';
+import { View, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 import Logo from '../assets/images/justlogo.png';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={styles.logo} />
+      <Image source={Logo as ImageSourcePropType} style={styles.logo} />
     </View>
   );
 };

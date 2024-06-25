@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { TextInput, StyleSheet, View, Text } from 'react-native';
+import { TextInput, StyleSheet, View, Text, TextInputProps, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
-const CustomTextInput = ({ placeholder, placeholderStyle, style, ...props }) => {
+interface CustomTextInputProps extends TextInputProps {
+  placeholder?: string;
+  placeholderStyle?: StyleProp<TextStyle>;
+  style?: StyleProp<ViewStyle>;
+}
+
+const CustomTextInput: React.FC<CustomTextInputProps> = ({ placeholder, placeholderStyle, style, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [value, setValue] = useState('');
 
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
-  const handleChangeText = text => setValue(text);
+  const handleChangeText = (text: string) => setValue(text);
 
   return (
     <View style={[styles.container, style]}>

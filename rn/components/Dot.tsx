@@ -1,7 +1,11 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 import React from 'react';
 
-const Dot = ({ color = "#EB5409" }) => {
+interface DotProps {
+  color?: string;
+}
+
+const Dot: React.FC<DotProps> = ({ color = "#EB5409" }) => {
   return <View style={[styles.container, { backgroundColor: color }]} />;
 };
 

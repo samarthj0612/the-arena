@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
 
-  const getTabBarIcon = (screen, focused) => {
+  const getTabBarIcon = (screen: string, focused: boolean) => {
     let iconComponent;
 
     switch (screen) {
