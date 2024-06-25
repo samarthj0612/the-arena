@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Octicons from 'react-native-vector-icons/Octicons'
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Octicons from 'react-native-vector-icons/Octicons';
 
-import { useBottomSheet } from '../../utils/BottomSheetContext'
-import CustomTextInput from '../../components/CustomTextInput'
-import Post from '../../components/Post'
-import { users } from '../../assets/data'
+import { useBottomSheet } from '../../utils/BottomSheetContext';
+import CustomTextInput from '../../components/CustomTextInput';
+import Post from '../../components/Post';
+import { users } from '../../assets/data';
 
-const userData = Object.values(users)
+const userData = Object.values(users);
 
 const Repost = ({ route }) => {
-  const [postId, setPostId] = useState();
+  const [postId, setPostId] = useState(null);
   const { closeBottomSheet } = useBottomSheet();
 
   useEffect(() => {
-    setPostId(route.params.postId);
-    closeBottomSheet();
+    const { postId } = route.params;
+    setPostId(postId);
+    closeBottomSheet(); // Ensure bottom sheet is closed when postId changes
   }, [route.params.postId]);
+
+  const handleRepost = () => {
+    // Implement repost functionality
+  };
 
   return (
     <SafeAreaView style={styles.body}>
@@ -58,18 +63,19 @@ const Repost = ({ route }) => {
                 </View>
               </TouchableOpacity>
             </View>
-
           </View>
-          <TouchableOpacity style={{ width: '100%' }}>
+
+          <TouchableOpacity style={{ width: '100%' }} onPress={handleRepost}>
             <View style={styles.postButton}>
               <Text style={styles.postNowText}>Repost</Text>
             </View>
           </TouchableOpacity>
         </View>
+
       </KeyboardAvoidingView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   body: {
@@ -153,6 +159,6 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
   }
-})
+});
 
-export default Repost
+export default Repost;

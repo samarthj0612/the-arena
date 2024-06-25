@@ -5,6 +5,10 @@ const CustomTextInput = ({ placeholder, placeholderStyle, style, ...props }) => 
   const [isFocused, setIsFocused] = useState(false);
   const [value, setValue] = useState('');
 
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
+  const handleChangeText = text => setValue(text);
+
   return (
     <View style={[styles.container, style]}>
       {!isFocused && value === '' && (
@@ -12,10 +16,10 @@ const CustomTextInput = ({ placeholder, placeholderStyle, style, ...props }) => 
       )}
       <TextInput
         style={[styles.textInput, isFocused && styles.focusedInput]}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        onChangeText={text => setValue(text)}
-        multiline={true}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChangeText={handleChangeText}
+        multiline
         value={value}
         {...props}
       />
@@ -36,14 +40,13 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   textInput: {
-    color: "white",
-
+    color: 'white',
     paddingHorizontal: 10,
     width: '100%',
   },
   focusedInput: {
     borderColor: '#808080',
-  }
+  },
 });
 
 export default CustomTextInput;

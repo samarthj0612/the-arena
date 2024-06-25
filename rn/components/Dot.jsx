@@ -1,20 +1,17 @@
-import { View, StyleSheet, Text } from 'react-native'
-import React from 'react'
+import { View, StyleSheet } from 'react-native';
+import React from 'react';
 
-const Dot = ({ color }) => {
-  return (
-    <View style={{ backgroundColor: color ? color : "#EB5409", ...styles.container }}>
-    </View>
-  )
-}
+const Dot = ({ color = "#EB5409" }) => {
+  return <View style={[styles.container, { backgroundColor: color }]} />;
+};
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 5,
     height: 4,
     width: 4,
-    borderRadius: 50,
+    borderRadius: 2, // Corrected to 2 for better border radius
   }
-})
+});
 
-export default Dot
+export default Dot;

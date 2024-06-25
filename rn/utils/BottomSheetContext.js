@@ -1,9 +1,9 @@
-import React, {createContext, useContext, useRef, useState} from 'react';
+import React, { createContext, useContext, useRef, useState } from 'react';
 import RBSheet from 'react-native-raw-bottom-sheet';
 
 const BottomSheetContext = createContext();
 
-export const BottomSheetProvider = ({children}) => {
+export const BottomSheetProvider = ({ children }) => {
   const refRBSheet = useRef();
   const [content, setContent] = useState(null);
   const [sheetHeight, setSheetHeight] = useState(150); // Default height
@@ -19,7 +19,7 @@ export const BottomSheetProvider = ({children}) => {
   };
 
   return (
-    <BottomSheetContext.Provider value={{openBottomSheet, closeBottomSheet}}>
+    <BottomSheetContext.Provider value={{ openBottomSheet, closeBottomSheet }}>
       {children}
       <RBSheet
         ref={refRBSheet}

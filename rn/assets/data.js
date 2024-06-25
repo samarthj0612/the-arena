@@ -2,10 +2,10 @@ export const posts = [
   {
     id: '0',
     createdBy: '0',
-    text: 'Demo caption',
+    text: `Can you imagine how bullish this airdrop sending would be for the future of the Arena though?\n\nAnd how valuable that could make being a badge holder? Shows a perfect use case for SoFi.`,
     media: {
       type: 'image',
-      source: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      source: 'https://images.unsplash.com/photo-1714677529582-ab6c96836537?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     repost: 'postId',
     comments: 30,
@@ -16,8 +16,8 @@ export const posts = [
   },
   {
     id: '1',
-    createdBy: '1',
-    text: 'Check out this amazing photo!',
+    createdBy: '0',
+    text: `Can you imagine how bullish this airdrop sending would be for the future of the Arena though?\n\nAnd how valuable that could make being a badge holder? Shows a perfect use case for SoFi.`,
     media: {
       type: 'image',
       source: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -29,45 +29,15 @@ export const posts = [
     saved: 15,
     createdAt: 1623574800000,
   },
-  {
-    id: '2',
-    createdBy: '2',
-    text: 'Loving the new vibes in the city',
-    media: {
-      type: 'image',
-      source: 'https://example.com/photo2.jpg',
-    },
-    repost: null,
-    comments: 22,
-    reposts: 44,
-    likes: 123,
-    saved: 25,
-    createdAt: 1623678400000,
-  },
-  {
-    id: '3',
-    createdBy: '3',
-    text: 'Throwback to the best vacation ever!',
-    media: {
-      type: 'video',
-      source: 'https://example.com/video2.mp4',
-    },
-    repost: '2',
-    comments: 50,
-    reposts: 70,
-    likes: 150,
-    saved: 30,
-    createdAt: 1623782000000,
-  },
 ];
 
 export const users = {
   0: {
     id: '0',
-    name: 'tanishq jain',
+    name: 'SirPink4529',
     age: 21,
     profile: 'https://...........',
-    username: 'xyz',
+    username: 'sirPink529',
     email: 'xyz@gmail.com',
   },
   1: {

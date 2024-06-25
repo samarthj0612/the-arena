@@ -17,18 +17,16 @@ const Home = () => {
       </TouchableOpacity>
       <Header />
       <ScrollView>
-        {posts.map((post, i) => {
-          return (
-            <Post
-              key={i}
-              id={post.id}
-              name={users[post.createdBy].name}
-              username={users[post.createdBy].username}
-              text={post.text}
-              media={post.media}
-            />
-          );
-        })}
+        {posts.map((post, i) => (
+          <Post
+            key={i}
+            id={post.id}
+            name={users[post.createdBy].name}
+            username={users[post.createdBy].username}
+            text={post.text}
+            media={post.media}
+          />
+        ))}
       </ScrollView>
     </View>
   );

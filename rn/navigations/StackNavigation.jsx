@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import AddNewPost from './screens/addNewPost';
 import BottomNavigation from './BottomNavigation';
-import Repost from './screens/repost';
+import AddNewPost from '../screens/addNewPost';
+import Repost from '../screens/repost';
 
 const Stack = createStackNavigator();
 
