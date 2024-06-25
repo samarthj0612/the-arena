@@ -234,7 +234,6 @@ const styles = StyleSheet.create({
     color: "white",
   },
   postContainer: {
-    // backgroundColor:"blue",
     flexDirection: "column",
     alignItems:"center",
     flex: 1,
