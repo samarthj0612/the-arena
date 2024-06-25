@@ -7,11 +7,29 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import CustomTextInput from '../../components/CustomTextInput'
 import { users } from '../../assets/data'
 
+import selectImage from '../../utils/select-gallery-image'
+import { ScrollView } from 'react-native-gesture-handler'
+
 const userData = Object.values(users)
 
 const AddNewPost = () => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  const handlePost = async () => {
+    const resImage = await selectImage();
+
+    if (resImage) {
+      setSelectedImage(resImage)
+    } else {
+      console.log("Error loading Image")
+    }
+  }
+
+  const handleRemoveImage = () => {
+    setSelectedImage(null);
+  }
 
   return (
     <SafeAreaView style={styles.body}>
@@ -28,17 +46,31 @@ const AddNewPost = () => {
 
           <View style={styles.inputContainer}>
             <Image style={styles.profileImg} source={{ uri: userData[1].profile }} />
-            <CustomTextInput
-              placeholder='What Happening?'
-              placeholderStyle={styles.placeholderStyle}
-              style={styles.textInput}
-            />
+            <ScrollView>
+              <View style={styles.postContainer}>
+                <CustomTextInput
+                  placeholder='What Happening?'
+                  placeholderStyle={styles.placeholderStyle}
+                  style={styles.textInput}
+                />
+                {selectedImage ? (
+                  <View style={styles.imageContainer}>
+                    <Image source={{ uri: selectedImage[0].uri }} style={styles.selectedImage} />
+                    <TouchableOpacity style={styles.removeButton} onPress={handleRemoveImage}>
+                      <Text style={styles.removeButtonText}>✕</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : null}
+
+
+              </View>
+            </ScrollView>
           </View>
 
           <View style={styles.submit}>
             <View style={styles.medias}>
               <View style={styles.mediaIcons}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handlePost}>
                   <Octicons name="image" color="white" size={30} />
                 </TouchableOpacity>
 
@@ -126,6 +158,29 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
+  imageContainer: {
+    position: 'relative',
+  },
+
+  selectedImage: {
+    height: 250,
+    width: 250,
+  },
+
+  removeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 50,
+    padding: 5,
+  },
+
+  removeButtonText: {
+    color: 'white',
+    fontSize: 18,
+  },
+
   submit: {
     alignItems: 'center',
     padding: 12
@@ -178,6 +233,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "white",
   },
+  postContainer: {
+    // backgroundColor:"blue",
+    flexDirection: "column",
+    alignItems:"center",
+    flex: 1,
+    justifyContent:"space-between"
+  }
 })
 
 export default AddNewPost
